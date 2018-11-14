@@ -7,6 +7,8 @@ const Text = styled.span`
       color = 'green'
     } else if (props.danger) {
       color = 'firebrick'
+    } else if (props.warning) {
+      color = 'darkorange'
     } else if (props.info) {
       color = 'mediumblue'
     } else if (props.muted) {

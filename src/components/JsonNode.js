@@ -17,6 +17,7 @@ const types = {
   array: 'array',
   number: 'number',
   string: 'string',
+  boolean: 'boolean',
 }
 
 const JsonNode = ({keyString, value, root}) => {
@@ -34,6 +35,8 @@ const JsonNode = ({keyString, value, root}) => {
     content = <Text success>{`"${value}"`}</Text>
   } else if (type === types.number) {
     content = <Text info>{value}</Text>
+  } else if (type === types.boolean) {
+    content = <Text warning>{value ? 'true' : 'false'}</Text>
   } else if (type === types.object) {
     items = Object.entries(value).map(([key, value]) => (
       <JsonNode key={key} keyString={key} value={value} />
