@@ -9,9 +9,14 @@ const Text = styled.span`
       color = 'firebrick'
     } else if (props.info) {
       color = 'mediumblue'
+    } else if (props.muted) {
+      color = 'darkgray'
+    } else {
+      color = 'black'
     }
     return color
   }};
+  ${(props) => props.bold && 'font-weight: bold;'};
 `
 
 export default Text

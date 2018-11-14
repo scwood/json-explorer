@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 const ResultContainer = styled.div`
+  display: flex;
+  flex: 2;
   overflow: scroll;
-  flex: 1;
   font-family: monospace;
   font-size: 1em;
   background-color: #efefef;

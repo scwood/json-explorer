@@ -25,7 +25,9 @@ const App = () => {
         <Textarea onChange={(event) => setInput(event.target.value)} />
         <ResultContainer>
           {errorMessage ? (
-            <Text danger>{errorMessage}</Text>
+            <Text bold danger>
+              {errorMessage}
+            </Text>
           ) : (
             <JsonNode root key="" value={parsedInput} />
           )}
