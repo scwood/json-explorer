@@ -9,7 +9,7 @@ import Toggle from './Toggle'
 const propTypes = {
   keyString: PropTypes.string,
   value: PropTypes.any,
-  root: PropTypes.boolean,
+  root: PropTypes.bool,
 }
 
 const types = {
@@ -48,7 +48,7 @@ const JsonNode = ({keyString, value, root}) => {
     content = <IndentedBlock>{items}</IndentedBlock>
     brackets = ['[', ']']
   }
-  const [opening, closing] = brackets
+  const [openingBracket, closingBracket] = brackets
   let initialMargin
   if (root && (type === 'object' || type === 'array')) {
     initialMargin = 20
@@ -56,15 +56,15 @@ const JsonNode = ({keyString, value, root}) => {
   return (
     <CommaSeparated style={{marginLeft: initialMargin}}>
       {keyString && `"${keyString}": `}
-      {opening && (
+      {openingBracket && (
         <Toggle
           show={collapsed}
           onClick={() => setCollapsed((state) => !state)}
         />
       )}
-      {opening}
+      {openingBracket}
       {!collapsed && content}
-      {closing}
+      {closingBracket}
       {collapsed && <Text muted>{` // ${items.length} item(s)`}</Text>}
     </CommaSeparated>
   )

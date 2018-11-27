@@ -15,7 +15,7 @@ const App = () => {
     try {
       parsedInput = JSON.parse(input)
     } catch (error) {
-      errorMessage = 'Invalid JSON'
+      errorMessage = error.toString()
     }
   }
   return (

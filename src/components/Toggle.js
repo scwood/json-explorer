@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const propTypes = {
-  show: PropTypes.boolean,
-  onClick: PropTypes.function,
+  show: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 
 const ToggleStyle = styled.div`
