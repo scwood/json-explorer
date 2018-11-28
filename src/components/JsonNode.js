@@ -50,7 +50,7 @@ const JsonNode = ({keyString, value, root}) => {
   }
   const [openingBracket, closingBracket] = brackets
   let initialMargin
-  if (root && (type === 'object' || type === 'array')) {
+  if (root && value !== null && (type === 'object' || type === 'array')) {
     initialMargin = 20
   }
   return (

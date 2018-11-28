@@ -1,20 +1,22 @@
 import styled from 'styled-components'
 
+import colors from '../colors'
+
 const Text = styled.span`
   color: ${(props) => {
     let color
     if (props.success) {
-      color = 'green'
+      color = colors.green
     } else if (props.danger) {
-      color = 'firebrick'
+      color = colors.red
     } else if (props.warning) {
-      color = 'darkorange'
+      color = colors.orange
     } else if (props.info) {
-      color = 'mediumblue'
+      color = colors.blue
     } else if (props.muted) {
-      color = 'darkgray'
+      color = colors.gray
     } else {
-      color = 'black'
+      color = colors.darkestGray
     }
     return color
   }};

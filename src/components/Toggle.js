@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import colors from '../colors'
+
 const propTypes = {
   show: PropTypes.bool,
   onClick: PropTypes.func,
@@ -11,9 +13,9 @@ const ToggleStyle = styled.div`
   position: absolute;
   display: inline-block;
   left: -14px;
-  color: silver;
+  color: ${colors.gray};
   &:hover {
-    color: gray;
+    color: ${colors.darkGray};
     cursor: pointer;
   }
 `
