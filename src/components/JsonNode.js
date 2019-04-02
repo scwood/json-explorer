@@ -9,10 +9,10 @@ import Toggle from './Toggle'
 const propTypes = {
   keyString: PropTypes.string,
   value: PropTypes.any,
-  root: PropTypes.bool,
+  isRoot: PropTypes.bool,
 }
 
-const types = {
+const nodeTypes = {
   object: 'object',
   array: 'array',
   number: 'number',
@@ -20,37 +20,41 @@ const types = {
   boolean: 'boolean',
 }
 
-const JsonNode = ({keyString, value, root}) => {
-  const [collapsed, setCollapsed] = useState(false)
+const JsonNode = ({keyString, value, isRoot}) => {
+  const [isCollapsed, setCollapsed] = useState(false)
   let type = typeof value
-  if (type === types.object && Array.isArray(value)) {
-    type = types.array
+  if (type === nodeTypes.object && Array.isArray(value)) {
+    type = nodeTypes.array
   }
   let content
   let items
   let brackets = ['', '']
   if (value === null) {
     content = <Text danger>null</Text>
-  } else if (type === types.string) {
+  } else if (type === nodeTypes.string) {
     content = <Text success>{`"${value}"`}</Text>
-  } else if (type === types.number) {
+  } else if (type === nodeTypes.number) {
     content = <Text info>{value}</Text>
-  } else if (type === types.boolean) {
+  } else if (type === nodeTypes.boolean) {
     content = <Text warning>{value ? 'true' : 'false'}</Text>
-  } else if (type === types.object) {
+  } else if (type === nodeTypes.object) {
     items = Object.entries(value).map(([key, value]) => (
       <JsonNode key={key} keyString={key} value={value} />
     ))
     content = <IndentedBlock>{items}</IndentedBlock>
     brackets = ['{', '}']
-  } else if (type === types.array) {
+  } else if (type === nodeTypes.array) {
     items = value.map((value, index) => <JsonNode key={index} value={value} />)
     content = <IndentedBlock>{items}</IndentedBlock>
     brackets = ['[', ']']
   }
   const [openingBracket, closingBracket] = brackets
   let initialMargin
-  if (root && value !== null && (type === 'object' || type === 'array')) {
+  if (
+    isRoot &&
+    value !== null &&
+    (type === nodeTypes.object || type === nodeTypes.array)
+  ) {
     initialMargin = 20
   }
   return (
@@ -58,14 +62,14 @@ const JsonNode = ({keyString, value, root}) => {
       {keyString && `"${keyString}": `}
       {openingBracket && (
         <Toggle
-          show={collapsed}
+          show={isCollapsed}
           onClick={() => setCollapsed((state) => !state)}
         />
       )}
       {openingBracket}
-      {!collapsed && content}
+      {!isCollapsed && content}
       {closingBracket}
-      {collapsed && <Text muted>{` // ${items.length} item(s)`}</Text>}
+      {isCollapsed && <Text muted>{` // ${items.length} item(s)`}</Text>}
     </CommaSeparated>
   )
 }

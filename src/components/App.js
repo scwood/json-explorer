@@ -29,7 +29,7 @@ const App = () => {
               {errorMessage}
             </Text>
           ) : (
-            <JsonNode root key="" value={parsedInput} />
+            <JsonNode isRoot key="" value={parsedInput} />
           )}
         </ResultContainer>
       </Container>
