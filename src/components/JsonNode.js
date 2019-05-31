@@ -69,7 +69,12 @@ function JsonNode({keyString, value, isRoot}) {
       {openingBracket}
       {!isCollapsed && content}
       {closingBracket}
-      {isCollapsed && <Text muted>{` // ${items.length} item(s)`}</Text>}
+      {isCollapsed && (
+        <Text muted>
+          {` // ${items.length} item`}
+          {items.length !== 1 && 's'}
+        </Text>
+      )}
     </CommaSeparated>
   );
 }
