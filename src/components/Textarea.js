@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import colors from '../colors'
+import colors from '../colors';
 
 const Textarea = styled.textarea.attrs({
   placeholder: 'Paste JSON here...',
@@ -13,6 +13,6 @@ const Textarea = styled.textarea.attrs({
   font-size: 1em;
   margin: 10px;
   padding: 10px;
-`
+`;
 
-export default Textarea
+export default Textarea;

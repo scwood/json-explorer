@@ -1,8 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import colors from '../colors'
+import colors from '../colors';
 
 const ResultContainer = styled.div`
+  position: relative;
   display: flex;
   flex: 2;
   overflow: scroll;
@@ -12,6 +13,6 @@ const ResultContainer = styled.div`
   border-radius: 0.25em;
   margin: 10px;
   padding: 10px;
-`
+`;
 
-export default ResultContainer
+export default ResultContainer;

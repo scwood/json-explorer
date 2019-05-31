@@ -1,6 +1,6 @@
-import {createGlobalStyle} from 'styled-components'
+import {createGlobalStyle} from 'styled-components';
 
-import colors from '../colors'
+import colors from '../colors';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -13,6 +13,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
     color: ${colors.darkestGray};
   }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

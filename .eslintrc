@@ -1,19 +1,3 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "env": {
-    "browser": "true",
-    "es6": "true"
-  },
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 9,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  }
+  "extends": "scwood"
 }

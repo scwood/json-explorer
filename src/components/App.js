@@ -1,21 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 
-import JsonNode from './JsonNode'
-import Container from './Container'
-import ResultContainer from './ResultContainer'
-import GlobalStyle from './GlobalStyle'
-import Textarea from './Textarea'
-import Text from './Text'
+import JsonNode from './JsonNode';
+import Container from './Container';
+import ResultContainer from './ResultContainer';
+import GlobalStyle from './GlobalStyle';
+import Textarea from './Textarea';
+import Text from './Text';
+import CopyButton from './CopyButton';
 
-const App = () => {
-  const [input, setInput] = useState('')
-  let parsedInput
-  let errorMessage
+function App() {
+  const [input, setInput] = useState('');
+  let parsedInput;
+  let errorMessage;
   if (input.trim() !== '') {
     try {
-      parsedInput = JSON.parse(input)
+      parsedInput = JSON.parse(input);
     } catch (error) {
-      errorMessage = error.toString()
+      errorMessage = error.toString();
     }
   }
   return (
@@ -24,6 +25,7 @@ const App = () => {
       <Container>
         <Textarea onChange={(event) => setInput(event.target.value)} />
         <ResultContainer>
+          <CopyButton getText={() => JSON.stringify(parsedInput, null, 2)} />
           {errorMessage ? (
             <Text bold danger>
               {errorMessage}
@@ -34,7 +36,7 @@ const App = () => {
         </ResultContainer>
       </Container>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
