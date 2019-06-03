@@ -1,2 +1,6 @@
-Tool to drill down into JSON. Can also copy formatted JSON to your clipboard. Works without an internet connection.
+- Drill down into JSON
+- Copy formatted JSON to clipboard
+- Works without an internet connection
+
+![screenshot](https://raw.githubusercontent.com/scwood/json-explorer/master/screenshot.png)
 
